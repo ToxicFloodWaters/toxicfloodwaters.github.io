@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Toxic Flood Waters show data, performance metrics, and booking history."
+    />
+    <title>Toxic Flood Waters | Show Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-noise"></div>
+
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark">TFW</div>
+        <div>
+          <p class="eyebrow">Show Data</p>
+          <h1>Toxic Flood Waters</h1>
+        </div>
+      </div>
+      <a class="book-button" href="index.html">Back to calendar</a>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero panel compact-hero">
+        <div class="hero-copy">
+          <p class="eyebrow accent">Performance intelligence</p>
+          <h2>Every show tells a bigger story.</h2>
+          <p class="lede">
+            Track lineup details, audience response, performance length, and financial
+            notes for each Toxic Flood Waters date.
+          </p>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <span class="stat-label">Shows tracked</span>
+            <strong id="show-count">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">Public status</span>
+            <strong>Booking record</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel data-section">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow accent">Detailed records</p>
+            <h3>Show data</h3>
+          </div>
+          <a class="text-link" href="index.html">View booking calendar →</a>
+        </div>
+        <div id="show-data-list" class="show-data-list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="show-data.js"></script>
+  </body>
+</html>
