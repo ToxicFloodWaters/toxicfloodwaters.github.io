@@ -1,32 +1,16 @@
 # bookinginfo
-Toxic Flood Waters booking calendar and band information page.
+Toxic Flood Waters booking calendar, show data, and album page.
 
-## Overview
-This repository contains a lightweight static web page for Toxic Flood Waters with a booking calendar and artist bio.
+## Pages
+- `index.html` — booking calendar and band bio
+- `show-data.html` — detailed metrics for each show
+- `album.html` — Hello album page with promotional listening and platform links
 
-## Included content
-- Upcoming live dates and venue calendar
-- Bio for Toxic Flood Waters
-- Release info for the new album Hello
-- Contact email section for booking inquiries
-
-## Files
-- `index.html` — page structure
-- `styles.css` — dark touring-style visual design
-- `script.js` — show data and live schedule rendering
+## Album links
+The album page includes placeholder URLs for SoundCloud, Spotify, YouTube, and Apple Music. Replace them in `album.html` with the final destination links. Track names and individual SoundCloud URLs can also be updated there.
 
 ## Local preview
-Open `index.html` in a browser, or run a simple local server:
-
 ```bash
 python3 -m http.server 8000
 ```
-
-Then visit:
-
-```text
-http://localhost:8000
-```
-
-## Customize
-Update the show list in `script.js` with real upcoming dates, venues, cities, and crowd notes. Replace the booking email in `index.html` if needed.
+Then visit `http://localhost:8000`.
