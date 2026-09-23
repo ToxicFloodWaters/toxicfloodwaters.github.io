@@ -1,5 +1,25 @@
 const showRecords = [
   {
+    id: "martha-yes-maam-siberia",
+    date: "2015-01-14",
+    venue: "Siberia",
+    city: "New Orleans",
+    state: "LA",
+    country: "USA",
+    time: "Not listed",
+    crowd: "Not recorded",
+    status: "Confirmed",
+    otherBands: "Martha; Yes Ma'am",
+    opener: "Not listed",
+    headliner: "Not listed",
+    engagement: "Not recorded",
+    pay: "Not recorded",
+    setLength: "Not recorded",
+    barEarnings: "Not recorded",
+    doorEarnings: "Not recorded",
+    flyer: "martha%20yes%20maam%20siberia%20jan%2014%202015.jpg"
+  },
+  {
     id: "st-roch-tavern",
     date: "2026-10-07",
     venue: "St. Roch Tavern",
@@ -43,9 +63,7 @@ const renderShowData = () => {
         </div>
         <span class="show-status confirmed">${show.status}</span>
       </div>
-
       ${show.flyer ? `<img class="show-flyer detail-flyer" src="${show.flyer}" alt="Flyer for ${show.venue} on ${formatDate(show.date)}" />` : ""}
-
       <div class="metric-grid">
         <div class="metric"><span>Other bands</span><strong>${show.otherBands}</strong></div>
         <div class="metric"><span>Opened by</span><strong>${show.opener}</strong></div>
