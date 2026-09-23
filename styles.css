@@ -55,3 +55,46 @@
   font-size: 0.7rem;
   color: var(--muted);
 }
+
+.show-flyer {
+  display: block;
+  width: clamp(72px, 10vw, 112px);
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.show-meta {
+  min-width: 0;
+}
+
+.show-meta .show-flyer {
+  margin-bottom: 10px;
+}
+
+.detail-flyer {
+  width: min(100%, 360px);
+  max-height: 520px;
+  margin: 20px auto 24px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 860px) {
+  .show-flyer {
+    width: clamp(64px, 16vw, 96px);
+  }
+}
+
+@media (max-width: 560px) {
+  .show-flyer {
+    width: 96px;
+  }
+
+  .detail-flyer {
+    width: min(100%, 280px);
+  }
+}
