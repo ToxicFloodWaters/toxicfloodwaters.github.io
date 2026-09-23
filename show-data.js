@@ -1,7 +1,7 @@
 const showRecords = [
   {
     id: "st-roch-tavern",
-    date: "2026-10-06",
+    date: "2026-10-07",
     venue: "St. Roch Tavern",
     city: "New Orleans",
     state: "LA",
@@ -9,9 +9,9 @@ const showRecords = [
     time: "8:00 PM",
     crowd: "15–30 predicted",
     status: "Confirmed",
-    otherBands: "Unknown",
-    opener: "Unknown",
-    headliner: "Unknown",
+    otherBands: "The Slick Skillet Serenaders",
+    opener: "Toxic Flood Waters",
+    headliner: "The Broad Street Misdemeanors",
     engagement: "Not yet reported",
     pay: "Undisclosed",
     setLength: "Not yet reported",
