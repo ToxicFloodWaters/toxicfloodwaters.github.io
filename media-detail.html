@@ -1,0 +1,69 @@
+const mediaItems = [
+  {
+    id: "st-roch-tuesdays-2012-2013",
+    title: "Every Tuesday at St. Roch Tavern",
+    year: "2012–2013",
+    type: "flyer",
+    category: "Flyers",
+    image: "Every%20tuesday%20in%202012-13.jpg",
+    alt: "Every Tuesday flyer for the St. Roch Tavern residency in 2012 and 2013",
+    description: "The Chicken Drop headlined the Tuesday-night residency, with Toxic Flood Waters, Jobidiah Hudson and the Roustabouts, and special guests supporting.",
+    details: "A recurring weekly residency with an all-local bill and a long-running underground run through New Orleans nightlife."
+  },
+  {
+    id: "siberia-2015",
+    title: "Siberia — Jan. 14, 2015",
+    year: "2015",
+    type: "photo",
+    category: "Photos",
+    image: "martha%20yes%20maam%20siberia%20jan%2014%202015.jpg",
+    alt: "Flyer for the Siberia January 14, 2015 show",
+    description: "A preserved flyer from one of the band’s underground New Orleans appearances.",
+    details: "This archived flyer documents a past show from the band’s post-2010 New Orleans era and is part of the ongoing historical record."
+  },
+  {
+    id: "video-placeholder",
+    title: "Live footage",
+    year: "Archive",
+    type: "video",
+    category: "Video",
+    image: "",
+    alt: "Video placeholder",
+    description: "This space can hold a performance video, rehearsal clip, or guest appearance once the footage is ready to archive.",
+    details: "Add a hosted YouTube, Vimeo, or local MP4 embed here when the film is ready."
+  }
+];
+
+const params = new URLSearchParams(window.location.search);
+const itemId = params.get("id");
+const detail = mediaItems.find((entry) => entry.id === itemId) || mediaItems[0];
+
+const titleEl = document.getElementById("detail-title");
+const subtitleEl = document.getElementById("detail-subtitle");
+const imageEl = document.getElementById("detail-image");
+const descriptionEl = document.getElementById("detail-description");
+const detailTextEl = document.getElementById("detail-text");
+const backLinkEl = document.getElementById("back-link");
+
+if (titleEl) titleEl.textContent = detail.title;
+if (subtitleEl) subtitleEl.textContent = `${detail.category} · ${detail.year}`;
+if (descriptionEl) descriptionEl.textContent = detail.description;
+if (detailTextEl) detailTextEl.textContent = detail.details;
+if (backLinkEl) backLinkEl.href = "past-show-media.html";
+
+if (imageEl) {
+  if (detail.image) {
+    imageEl.src = detail.image;
+    imageEl.alt = detail.alt;
+    imageEl.hidden = false;
+  } else {
+    imageEl.hidden = true;
+    imageEl.parentElement.classList.add("video-placeholder-shell");
+    imageEl.parentElement.innerHTML = `
+      <div class="video-placeholder large-video-placeholder">
+        <span>Video clip</span>
+        <strong>Add embed</strong>
+      </div>
+    `;
+  }
+}

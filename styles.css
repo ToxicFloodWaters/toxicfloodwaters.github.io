@@ -1,510 +1,82 @@
-:root {
-  --bg: #0c0d12;
-  --bg-soft: #141821;
-  --panel: rgba(18, 21, 29, 0.86);
-  --panel-border: rgba(255, 255, 255, 0.08);
-  --text: #edf2ff;
-  --muted: #a5afc8;
-  --accent: #ff5a5f;
-  --accent-2: #7ee7ff;
-  --success: #77e0a5;
-  --warning: #f7c66a;
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: "Inter", sans-serif;
-  background:
-    radial-gradient(circle at top, rgba(255, 90, 95, 0.16), transparent 30%),
-    linear-gradient(180deg, #090b10 0%, #0d1018 100%);
-  color: var(--text);
-}
-
-.bg-noise {
-  position: fixed;
-  inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.02));
-  pointer-events: none;
-}
-
-.topbar,
-.page-shell {
-  position: relative;
-  z-index: 1;
-}
-
-.topbar {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 28px 24px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.brand-wrap {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.brand-link {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.brand-link:hover {
-  text-decoration: none;
-}
-
-.brand-link:hover .brand-mark {
-  transform: translateY(-1px);
-}
-
-.brand-mark {
-  width: 54px;
-  height: 54px;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--accent), #7d4bff);
-  color: #fff;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.brand-logo {
-  display: block;
-  width: 54px;
-  height: 54px;
-  object-fit: cover;
-  border-radius: 14px;
-  background: transparent;
-  box-shadow: var(--shadow);
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.nav-link {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-  color: var(--text);
-}
-
-.eyebrow {
-  margin: 0 0 8px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  color: var(--muted);
-}
-
-.eyebrow.accent {
-  color: var(--accent-2);
-}
-
-h1, h2, h3, p {
-  margin: 0;
-}
-
-h1 {
-  font-size: clamp(1.5rem, 2vw, 2rem);
-  letter-spacing: -0.05em;
-}
-
-.book-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 1.2rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text);
-  text-decoration: none;
-  border: 1px solid var(--panel-border);
-  font-weight: 600;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.book-button:hover {
-  transform: translateY(-1px);
-  border-color: rgba(126, 231, 255, 0.4);
-}
-
-.page-shell {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 32px 24px 60px;
-}
-
-.panel {
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.5fr 0.7fr;
-  gap: 20px;
-  padding: 32px;
-  margin-bottom: 26px;
-}
-
-.hero-copy h2 {
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 0.98;
-  letter-spacing: -0.07em;
-  max-width: 620px;
-}
-
-.lede {
-  margin-top: 18px;
-  max-width: 560px;
-  line-height: 1.7;
-  color: var(--muted);
-  font-size: 1.02rem;
-}
-
-.hero-stats {
-  display: grid;
-  align-content: center;
-  gap: 18px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--panel-border);
-  border-radius: 20px;
-  padding: 20px;
-}
-
-.hero-stats > div {
-  display: grid;
-  gap: 8px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.hero-stats > div:last-child {
-  border-bottom: none;
-}
-
-.stat-label {
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-}
-
-.hero-stats strong {
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-}
-
-.story-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 0.8fr;
-  gap: 24px;
-  margin-bottom: 26px;
-}
-
-.bio-panel,
-.album-panel,
-.booking-box,
-.band-box {
-  padding: 24px;
-}
-
-.bio-panel h3,
-.album-panel h3,
-.booking-box h3,
-.band-box h3 {
-  margin-bottom: 12px;
-  font-size: clamp(1.4rem, 2vw, 2rem);
-  letter-spacing: -0.06em;
-}
-
-.bio-panel p,
-.album-panel p,
-.booking-box p,
-.band-box li {
-  color: var(--muted);
-  line-height: 1.75;
-}
-
-.bio-panel p + p {
-  margin-top: 12px;
-}
-
-.album-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.release-badge {
-  margin-top: 18px;
-  display: inline-flex;
-  align-self: flex-start;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(126, 231, 255, 0.08);
-  border: 1px solid rgba(126, 231, 255, 0.3);
-  color: var(--accent-2);
-  font-weight: 700;
-}
-
-.calendar-section {
-  padding: 26px 22px 18px;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.section-header h3 {
-  font-size: clamp(1.5rem, 2vw, 2.2rem);
-  letter-spacing: -0.05em;
-}
-
-.status-legend {
-  display: flex;
-  gap: 16px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.status-legend span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dot.confirmed {
-  background: var(--success);
-}
-
-.dot.tentative {
-  background: var(--warning);
-}
-
-.show-list {
-  display: grid;
-  gap: 16px;
-}
-
-.show-card {
-  display: grid;
-  grid-template-columns: 1.2fr 1.4fr 0.7fr 0.7fr 0.8fr;
-  gap: 12px;
-  align-items: center;
-  padding: 18px 16px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
-}
-
-.show-date {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.show-date .month {
-  color: var(--accent-2);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-}
-
-.show-date .day {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.06em;
-}
-
-.show-date .weekday {
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.show-meta {
-  display: grid;
-  gap: 6px;
-  min-width: 0;
-}
-
-.show-meta .venue {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.show-meta .location {
-  color: var(--muted);
-}
-
-.show-time,
-.show-crowd,
-.show-status {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.show-crowd {
-  color: var(--muted);
-}
-
-.show-status {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  min-width: 100px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-}
-
-.show-status.confirmed {
-  background: rgba(119, 224, 165, 0.12);
-  color: var(--success);
-  border: 1px solid rgba(119, 224, 165, 0.4);
-}
-
-.show-status.tentative {
-  background: rgba(247, 198, 106, 0.12);
-  color: var(--warning);
-  border: 1px solid rgba(247, 198, 106, 0.4);
-}
-
-.show-flyer {
-  display: block;
-  width: clamp(72px, 10vw, 112px);
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-}
-
-.show-meta .show-flyer {
-  margin-bottom: 10px;
-}
-
-.detail-flyer {
-  width: min(100%, 360px);
-  max-height: 520px;
-  margin: 20px auto 24px;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.bottom-grid {
-  margin-top: 26px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.booking-box a {
-  margin-top: 16px;
-  display: inline-block;
-  color: var(--accent-2);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.band-box ul {
-  margin: 0;
-  padding-left: 18px;
-}
-
-@media (max-width: 860px) {
-  .hero,
-  .story-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .show-card {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .show-status {
-    justify-self: start;
-  }
-
-  .show-flyer {
-    width: clamp(64px, 16vw, 96px);
-  }
-
-  .bottom-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 560px) {
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .page-shell {
-    padding: 20px 14px 40px;
-  }
-
-  .hero,
-  .calendar-section,
-  .bio-panel,
-  .album-panel,
-  .booking-box,
-  .band-box {
-    padding: 18px;
-  }
-
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .show-card {
-    grid-template-columns: 1fr;
-    align-items: flex-start;
-  }
-
-  .show-flyer {
-    width: 96px;
-  }
-
-  .detail-flyer {
-    width: min(100%, 280px);
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Past Toxic Flood Waters show footage, photos, and archival media."
+    />
+    <title>Toxic Flood Waters | Archive Media</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-noise"></div>
+
+    <header class="topbar">
+      <div class="brand-wrap">
+        <a class="brand-link" href="index.html" aria-label="Toxic Flood Waters home">
+          <img class="brand-mark brand-logo" src="Tfw-logo.jpg" alt="Toxic Flood Waters logo" />
+        </a>
+        <div>
+          <p class="eyebrow">Archive media</p>
+          <h1>Toxic Flood Waters</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="book-button" href="past-shows.html">Past shows</a>
+        <a class="book-button" href="index.html">Back to calendar</a>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero panel">
+        <div class="hero-copy">
+          <p class="eyebrow accent">Past show media</p>
+          <h2>Footage, flyers, and photos from the archive.</h2>
+          <p class="lede">
+            A living collection of past Toxic Flood Waters appearances, from flyers and stills to video clips and performance highlights.
+          </p>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <span class="stat-label">Archive</span>
+            <strong>Photos + video</strong>
+          </div>
+          <div>
+            <span class="stat-label">Focus</span>
+            <strong>Live history</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel media-section">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow accent">Recent additions</p>
+            <h3>Past show archive</h3>
+          </div>
+          <div class="filter-group" aria-label="Media filters">
+            <button class="filter-button active" data-filter="all" type="button">All</button>
+            <button class="filter-button" data-filter="flyer" type="button">Flyers</button>
+            <button class="filter-button" data-filter="photo" type="button">Photos</button>
+            <button class="filter-button" data-filter="video" type="button">Video</button>
+          </div>
+        </div>
+
+        <div id="media-grid" class="media-grid" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          No media matches this filter yet.
+        </div>
+      </section>
+    </main>
+
+    <script src="media-data.js"></script>
+  </body>
+</html>
