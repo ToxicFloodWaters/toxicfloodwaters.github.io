@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Booking information for Toxic Flood Waters promoters and venue contacts." />
-    <title>Toxic Flood Waters | Booking</title>
+    <meta name="description" content="Upcoming Toxic Flood Waters live dates and event flyers." />
+    <title>Toxic Flood Waters | Upcoming Shows</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -18,40 +18,48 @@
           <img class="brand-mark brand-logo" src="Tfw-logo.jpg" alt="Toxic Flood Waters logo" />
         </a>
         <div>
-          <p class="eyebrow">Promoter info</p>
+          <p class="eyebrow">Upcoming shows</p>
           <h1>Toxic Flood Waters</h1>
         </div>
       </div>
       <div class="header-actions">
         <a class="book-button" href="index.html">Fans</a>
-        <a class="book-button" href="upcoming-shows.html">Shows</a>
-        <a class="book-button" href="mailto:tfwatersandco@gmail.com">Email booking</a>
+        <a class="book-button" href="past-show-media.html">Archive</a>
+        <a class="book-button" href="booking.html">Book the band</a>
       </div>
     </header>
     <main class="page-shell">
       <section class="hero panel compact-hero">
         <div class="hero-copy">
-          <p class="eyebrow accent">Booking</p>
-          <h2>For clubs, festivals, and support slots.</h2>
-          <p class="lede">Promoters can reach out for live bookings, touring, and special event requests.</p>
+          <p class="eyebrow accent">Live dates</p>
+          <h2>Upcoming appearances.</h2>
+          <p class="lede">Flyers, city details, and the latest live dates from the band’s tour calendar.</p>
         </div>
         <div class="hero-stats">
           <div>
-            <span class="stat-label">Email</span>
-            <strong>tfwatersandco@gmail.com</strong>
+            <span class="stat-label">Next stop</span>
+            <strong id="next-stop">Loading…</strong>
           </div>
           <div>
             <span class="stat-label">Status</span>
-            <strong>Available</strong>
+            <strong>Live calendar</strong>
           </div>
         </div>
       </section>
-      <section class="panel info-panel">
-        <p class="eyebrow accent">Promoter booking</p>
-        <h3>Contact the band</h3>
-        <p class="lede">For club dates, festivals, press, and touring inquiries, email the booking contact listed here.</p>
-        <a class="book-button" href="mailto:tfwatersandco@gmail.com">tfwatersandco@gmail.com</a>
+      <section class="calendar-section panel">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow accent">Schedule</p>
+            <h3>Upcoming shows</h3>
+          </div>
+          <div class="status-legend">
+            <span><i class="dot confirmed"></i>Confirmed</span>
+            <span><i class="dot tentative"></i>Tentative</span>
+          </div>
+        </div>
+        <div id="show-list" class="show-list" aria-live="polite"></div>
       </section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
