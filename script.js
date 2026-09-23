@@ -8,7 +8,8 @@ const shows = [
     time: "8:00 PM",
     crowd: "15-30 predicted",
     status: "confirmed",
-    details: "show-data.html#st-roch-tavern"
+    details: "show-data.html#st-roch-tavern",
+    flyer: "Oct.%207%202026.jpg"
   }
 ];
 
@@ -27,7 +28,13 @@ const renderShows = () => {
     return `
       <article class="show-card">
         <div class="show-date"><span class="month">${new Intl.DateTimeFormat("en-US", { month: "short" }).format(new Date(show.date + "T00:00:00"))}</span><span class="day">${new Intl.DateTimeFormat("en-US", { day: "numeric" }).format(new Date(show.date + "T00:00:00"))}</span><span class="weekday">${new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(new Date(show.date + "T00:00:00"))}</span></div>
-        <div class="show-meta"><span class="venue">${show.venue}</span><span class="location">${location}</span></div>
+        <div class="show-meta">
+          ${show.flyer ? `<img class="show-flyer" src="${show.flyer}" alt="Flyer for ${show.venue} on ${show.date}" />` : ""}
+          <div>
+            <span class="venue">${show.venue}</span>
+            <span class="location">${location}</span>
+          </div>
+        </div>
         <div class="show-time">${show.time}</div>
         <div class="show-crowd">${show.crowd}</div>
         <div class="show-status ${statusClass}">${statusLabel}</div>

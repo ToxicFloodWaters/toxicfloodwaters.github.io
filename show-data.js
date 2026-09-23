@@ -16,7 +16,8 @@ const showRecords = [
     pay: "Undisclosed",
     setLength: "Not yet reported",
     barEarnings: "Unknown",
-    doorEarnings: "Unknown"
+    doorEarnings: "Unknown",
+    flyer: "Oct.%207%202026.jpg"
   }
 ];
 
@@ -42,6 +43,8 @@ const renderShowData = () => {
         </div>
         <span class="show-status confirmed">${show.status}</span>
       </div>
+
+      ${show.flyer ? `<img class="show-flyer detail-flyer" src="${show.flyer}" alt="Flyer for ${show.venue} on ${formatDate(show.date)}" />` : ""}
 
       <div class="metric-grid">
         <div class="metric"><span>Other bands</span><strong>${show.otherBands}</strong></div>
