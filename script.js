@@ -1,5 +1,18 @@
 const shows = [
   {
+    date: "2012-01-03",
+    displayDate: "Every Tuesday in 2012 and 2013",
+    venue: "St. Roch Tavern",
+    city: "New Orleans",
+    state: "LA",
+    country: "USA",
+    time: "9:00 PM",
+    crowd: "Not recorded",
+    status: "confirmed",
+    details: "show-data.html#st-roch-tavern-tuesdays-2012-2013",
+    flyer: "Every%20tuesday%20in%202012-13.jpg"
+  },
+  {
     date: "2015-01-14",
     venue: "Siberia",
     city: "New Orleans",
@@ -39,11 +52,12 @@ const renderShows = () => {
     const statusClass = show.status === "confirmed" ? "confirmed" : "tentative";
     const statusLabel = show.status === "confirmed" ? "Confirmed" : "Tentative";
     const showDate = new Date(`${show.date}T00:00:00`);
+    const dateLabel = show.displayDate || new Intl.DateTimeFormat("en-US", { weekday: "long", year: "numeric" }).format(showDate);
     return `
       <article class="show-card">
-        <div class="show-date"><span class="month">${new Intl.DateTimeFormat("en-US", { month: "short" }).format(showDate)}</span><span class="day">${new Intl.DateTimeFormat("en-US", { day: "numeric" }).format(showDate)}</span><span class="weekday">${new Intl.DateTimeFormat("en-US", { weekday: "long", year: "numeric" }).format(showDate)}</span></div>
+        <div class="show-date"><span class="month">${show.displayDate ? "2012–13" : new Intl.DateTimeFormat("en-US", { month: "short" }).format(showDate)}</span><span class="day">${show.displayDate ? "Every Tuesday" : new Intl.DateTimeFormat("en-US", { day: "numeric" }).format(showDate)}</span><span class="weekday">${dateLabel}</span></div>
         <div class="show-meta">
-          ${show.flyer ? `<img class="show-flyer" src="${show.flyer}" alt="Flyer for ${show.venue} on ${show.date}" />` : ""}
+          ${show.flyer ? `<img class="show-flyer" src="${show.flyer}" alt="Flyer for ${dateLabel}" />` : ""}
           <div><span class="venue">${show.venue}</span><span class="location">${location}</span></div>
         </div>
         <div class="show-time">${show.time}</div>

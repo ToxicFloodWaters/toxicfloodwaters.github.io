@@ -1,5 +1,26 @@
 const showRecords = [
   {
+    id: "st-roch-tavern-tuesdays-2012-2013",
+    date: "2012-01-03",
+    dateLabel: "Every Tuesday in 2012 and 2013",
+    venue: "St. Roch Tavern",
+    city: "New Orleans",
+    state: "LA",
+    country: "USA",
+    time: "9:00 PM",
+    crowd: "Not recorded",
+    status: "Confirmed",
+    otherBands: "Toxic Flood Waters; Jobidiah Hudson and the Roustabouts; special guests",
+    opener: "Not specified",
+    headliner: "The Chicken Drop",
+    engagement: "Not recorded",
+    pay: "Not recorded",
+    setLength: "Not recorded",
+    barEarnings: "Not recorded",
+    doorEarnings: "Not recorded",
+    flyer: "Every%20tuesday%20in%202012-13.jpg"
+  },
+  {
     id: "martha-yes-maam-siberia",
     date: "2015-01-14",
     venue: "Siberia",
@@ -44,12 +65,12 @@ const showRecords = [
 const dataList = document.getElementById("show-data-list");
 const showCount = document.getElementById("show-count");
 
-const formatDate = (dateString) => new Intl.DateTimeFormat("en-US", {
+const formatDate = (show) => show.dateLabel || new Intl.DateTimeFormat("en-US", {
   weekday: "long",
   month: "long",
   day: "numeric",
   year: "numeric"
-}).format(new Date(`${dateString}T00:00:00`));
+}).format(new Date(`${show.date}T00:00:00`));
 
 const renderShowData = () => {
   showCount.textContent = showRecords.length;
@@ -57,13 +78,13 @@ const renderShowData = () => {
     <article class="data-card" id="${show.id}">
       <div class="data-card-header">
         <div>
-          <p class="eyebrow accent">${formatDate(show.date)} · ${show.time}</p>
+          <p class="eyebrow accent">${formatDate(show)} · ${show.time}</p>
           <h4>${show.venue}</h4>
           <p class="data-location">${show.city}, ${show.state}, ${show.country}</p>
         </div>
         <span class="show-status confirmed">${show.status}</span>
       </div>
-      ${show.flyer ? `<img class="show-flyer detail-flyer" src="${show.flyer}" alt="Flyer for ${show.venue} on ${formatDate(show.date)}" />` : ""}
+      ${show.flyer ? `<img class="show-flyer detail-flyer" src="${show.flyer}" alt="Flyer for ${formatDate(show)}" />` : ""}
       <div class="metric-grid">
         <div class="metric"><span>Other bands</span><strong>${show.otherBands}</strong></div>
         <div class="metric"><span>Opened by</span><strong>${show.opener}</strong></div>
