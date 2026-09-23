@@ -31,10 +31,10 @@ const nextStop = document.getElementById("next-stop");
 const renderShows = () => {
   const sortedShows = [...shows].sort((a, b) => new Date(a.date) - new Date(b.date));
   const upcomingShows = sortedShows.filter((show) => new Date(`${show.date}T23:59:59`) >= new Date());
-  const next = upcomingShows[0] || sortedShows[sortedShows.length - 1];
-  nextStop.textContent = next ? `${next.city}, ${next.state}` : "No dates scheduled";
+  const next = upcomingShows[0];
+  nextStop.textContent = next ? `${next.city}, ${next.state}` : "No upcoming dates";
 
-  list.innerHTML = sortedShows.map((show) => {
+  list.innerHTML = upcomingShows.map((show) => {
     const location = `${show.city}, ${show.state}, ${show.country}`;
     const statusClass = show.status === "confirmed" ? "confirmed" : "tentative";
     const statusLabel = show.status === "confirmed" ? "Confirmed" : "Tentative";
