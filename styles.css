@@ -82,6 +82,16 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.brand-logo {
+  display: block;
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 14px;
+  background: transparent;
+  box-shadow: var(--shadow);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
